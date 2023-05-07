@@ -4,7 +4,9 @@ body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
 }
-
+a:link{
+    text-decoration: none;
+}
 
 header {
     display: flex;
@@ -28,7 +30,7 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
-    margin-top: 100px;
+    margin: 100px 0 50px;
 }
 
 .photographer_section article {
@@ -39,12 +41,37 @@ h1 {
     flex-direction: column;
 }
 
+.photographer_section article img {
+    display: block;
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    object-fit: cover;
+}
 .photographer_section article h2 {
+    text-align: center;
     color: #D3573C;
-    font-size: 36px;
+    font-size: 1.5rem;
+}
+.photographer_section article h3{
+    font-size: .8rem;
+}
+.photographer_section article p{
+    font-size: .7rem;
+
+}
+.photographer_section article span{
+    font-size: .6rem;
 }
 
-.photographer_section article img {
-    height: 200px;
-    width: 200px;
+/* @media sceen and(max-width:780px){
+    .photographer_section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+    
+
 }
+     */

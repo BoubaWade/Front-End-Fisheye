@@ -4,32 +4,82 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <title>Fisheye - photographe</title>
   </head>
   <body>
+    <div class="background_modal_open"></div>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="./index.html"><img src="assets/images/logo.png" class="logo" alt="page d'accueil de Fisheye"/></a>
     </header>
     <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <div class="photograph_header">
+        <div class="title_container">
+        </div>
+        <button class="contact_button" aria-label="Contactez-Moi"  aria-controls="contact_modal">Contactez-moi</button>
+      </div>
+      <div class="sort_container">
+        <h2>Trier par</h2>
+        <form>
+          <img src="./assets/icons/Vector.svg" class="icon_vector" alt="Ouvrir le menu déroulant de tri des médias" tabindex="0" >
+          <div class="labels_container">
+            <label class="label_radio_popularity" for="popularity_sorted" tabindex="0">Popularité</label>
+            <label class="label_radio_date" for="date_sorted" tabindex="0">Date</label>
+            <label class="label_radio_title" for="title_sorted" tabindex="0">Titre</label>
+            <span class="span_top_labels_container"></span>
+            <span class="span_bottom_labels_container"></span>
+          </div>  
+          <div class="radios_container">
+            <input type="radio" id="popularity_sorted" value="radio" name="radio" tabindex="-1" checked>
+            <input type="radio" id="date_sorted" value="radio" name="radio" tabindex="-1">
+            <input type="radio" id="title_sorted" value="radio" name="radio" tabindex="-1">
+          </div>
+        </form>
+      </div>
+      <ul class="media_section"></ul>
+      <div class="total_likes_container">
+        <div class="total_likes_heart">
+          <span class="total_likes"></span>
+          <i class = "fa-sharp fa-solid fa-heart"></i>
+        </div>
+        <span class="price_of_day"></span>
       </div>
     </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+    <div id="contact_modal" role="dialog" aria-modal="true" aria-labelledby="Modale de contact" tabindex="-1" aria-hidden="true">
+			<div class="modal" role="document">
+        <header>
+          <h2></h2>
+          <img src="assets/icons/close.svg" class="close_modal" aria-label="Fermer la modale" tabindex="0"/>
         </header>
 				<form>
-					<div>
+          <div>
 						<label>Prénom</label>
-						<input />
+						<input type="text" id="first"/>
+            <span class="error_first_name_input"></span>
+						<label>Nom</label>
+						<input type="text" id="last"/>
+            <span class="error_last_name_input"></span>
+						<label>Email</label>
+						<input type="email" id="email"/>
+            <span class="error_email_input"></span>
+						<label>Votre message</label>
+						<textarea id="message" cols="30" rows="10" ></textarea>
+            <span class="error_message_input"></span>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button class="send_button" aria-label="Envoyez le message">Envoyer</button>
+          <div class="text-form-invalid"></div>
 				</form>
+        <div class="validation_confirm"></div>
 			</div>
+		</div>
+    <div id="lightbox_modal" role="dialog" aria-modal="true" aria-labelledby="Modale de la lightBox" tabindex="-1" aria-hidden="true">
+			<div class="lightbox" role="document">
+        <div class="article_container"></div>       
+        <img src="assets/icons/close_lightbox.svg" class="close_lightbox" aria-label="Fermer la lightBox" tabindex="0"/>
+        <img src="assets/icons/arrow-left.svg" class="previous_image" aria-label="Media précédent" tabindex="0"/>
+        <img src="assets/icons/arrow-right.svg" class="next_image" aria-label="Media suivant" tabindex="0"/>      
+      </div>
 		</div>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
