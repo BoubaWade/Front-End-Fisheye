@@ -1,5 +1,4 @@
-// const lightBoxModal = document.getElementById("lightbox_modal");
-// console.log(lightBoxModal);
+const lightBoxModal = document.getElementById("lightbox_modal");
 const closeLightBox = document.querySelector(".close_lightbox");
 const previousImage = document.querySelector(".previous_image");
 const nextImage = document.querySelector(".next_image");
@@ -50,7 +49,6 @@ async function displayLightBoxMedia(medias) {
 }
 
 async function initMediaLightBox() {
-  // Récupère les medias des photographes
   const { medias } = await getMedia();
   displayLightBoxMedia(medias);
 }
@@ -58,13 +56,11 @@ initMediaLightBox();
 
 closeLightBox.addEventListener("click", () => {
   lightBoxModal.style.display = "none";
-  // mediaSection.style.display = "block";
 });
 
 const lightBox = document.querySelector(".lightbox");
 const lightBoxCardsDOM = document.querySelectorAll(".article");
 const lightBoxWidth = lightBox.clientWidth;
-// console.log(lightBoxCardsDOM.length);
 
 const articleContainerWidth = lightBoxCardsDOM.length * lightBoxWidth;
 articleContainer.style.width = `${articleContainerWidth}px`;

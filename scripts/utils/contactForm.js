@@ -1,12 +1,11 @@
 const header = document.querySelector("header");
+const main = document.querySelector("main");
 const contactButton = document.querySelector(".contact_button");
-const sendButton = document.querySelector(".send_button");
+
 const closeModalButton = document.querySelector(".close_modal");
 const contactModal = document.getElementById("contact_modal");
-const modal = document.querySelector(".modal");
+const h2Modal = document.querySelector(".modal h2");
 const backgroundModalOpen = document.querySelector(".background_modal_open");
-
-// modal.setAttribute("aria-describedby",` "contacter votre photographe : ${}"`)
 
 function displayModal() {
   contactModal.style.display = "block";
@@ -177,13 +176,9 @@ function validate(e) {
     messageOutput = null;
 
     form.innerHTML = "";
-    // modal.classList.add("#contact_modal .modal");
-    // document.querySelector(".modal h2").style.opacity = 0;
+    h2Modal.innerHTML = "";
     const validationConfirm = document.querySelector(".validation_confirm");
-    validationConfirm.classList.add("#contact_modal .modal");
     validationConfirm.innerHTML = "Message envoyé";
-    // modal.style.textAlign = "center";
-    backgroundModalOpen.classList.remove("overlay");
   } else {
     const textFormInvalid = document.querySelector(".text-form-invalid");
     textFormInvalid.textContent = "Veuillez bien remplir le formulaire";

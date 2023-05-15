@@ -78,8 +78,7 @@ async function getMedia() {
 const lightBoxModal = document.getElementById("lightbox_modal");
 
 function mediaFactory(medias) {
-  const { id, date, image, video, photographerId, title, price, likes } =
-    medias;
+  const { id, image, video, title, likes } = medias;
 
   const picture = `assets/images/${image}`;
   const videoPicture = `assets/images/${video}`;
@@ -218,7 +217,6 @@ async function initMedia() {
 initMedia();
 
 //  ----------------------CREATION ET GESTION DU MENU TRIEUR DES MEDIAS----------------------------//
-const sortContainer = document.querySelectorAll(".sort_container");
 const labelsContainer = document.querySelector(".labels_container");
 const labelRadioPopularity = document.querySelector(".label_radio_popularity");
 const labelRadioDate = document.querySelector(".label_radio_date");
@@ -407,6 +405,8 @@ async function displayLightBoxMedia(medias) {
     articleContainer.appendChild(lightBoxCardDOM);
 
     // ---DEBUT-------AFFICHAGE------FERMETURE------ET L'ACCECIBILITE DE LA LIGHTBOX ---------------------
+    const header = document.querySelector("header");
+    const main = document.querySelector("main");
     const lightBox = document.querySelector(".lightbox");
     const previousImage = document.querySelector(".previous_image");
     const nextImage = document.querySelector(".next_image");
@@ -436,9 +436,6 @@ async function displayLightBoxMedia(medias) {
 
     previousImage.addEventListener("click", () => {
       position--;
-      // if (position > + 1) {
-      //   position = 0;
-      // }
       articleContainer.style.transform = `translateX(${position * 800}px)`;
     });
     previousImage.addEventListener("keydown", (e) => {
@@ -449,7 +446,7 @@ async function displayLightBoxMedia(medias) {
     });
 
     nextImage.addEventListener("click", () => {
-      position++;
+      if (position < 0) position++;
       if (position == lightBoxCardsDOM.length) {
         position = 0;
       }

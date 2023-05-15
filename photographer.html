@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
+<html lang="fr">
+  <head>   
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <title>Fisheye - photographe</title>
   </head>
   <body>
@@ -46,28 +48,28 @@
         <span class="price_of_day"></span>
       </div>
     </main>
-    <div id="contact_modal" role="dialog" aria-modal="true" aria-labelledby="Modale de contact" tabindex="-1" aria-hidden="true">
+    <div id="contact_modal" role="dialog" aria-modal="true" aria-labelledby="Formulaire de contact" tabindex="-1" aria-hidden="true">
 			<div class="modal" role="document">
         <header>
           <h2></h2>
-          <img src="assets/icons/close.svg" class="close_modal" aria-label="Fermer la modale" tabindex="0"/>
+          <img src="assets/icons/close.svg" class="close_modal" alt="Fermer le formulaire de contact" aria-label="Fermer la modale" tabindex="0"/>
         </header>
 				<form>
           <div>
-						<label>Prénom</label>
-						<input type="text" id="first"/>
+						<label for="first">Prénom</label>
+						<input type="text" id="first" aria-label="Votre prénom"/>
             <span class="error_first_name_input"></span>
-						<label>Nom</label>
-						<input type="text" id="last"/>
+						<label for="last">Nom</label>
+						<input type="text" id="last" aria-label="Votre nom"/>
             <span class="error_last_name_input"></span>
-						<label>Email</label>
-						<input type="email" id="email"/>
+						<label for="email">Email</label>
+						<input type="email" id="email" aria-label="Votre email"/>
             <span class="error_email_input"></span>
-						<label>Votre message</label>
-						<textarea id="message" cols="30" rows="10" ></textarea>
+						<label for="message">Votre message</label>
+						<textarea id="message" cols="30" rows="10" aria-label="Votre message"></textarea>
             <span class="error_message_input"></span>
 					</div>
-          <button class="send_button" aria-label="Envoyez le message">Envoyer</button>
+          <button class="send_button" aria-label="Envoyez votre message">Envoyer</button>
           <div class="text-form-invalid"></div>
 				</form>
         <div class="validation_confirm"></div>
@@ -76,12 +78,12 @@
     <div id="lightbox_modal" role="dialog" aria-modal="true" aria-labelledby="Modale de la lightBox" tabindex="-1" aria-hidden="true">
 			<div class="lightbox" role="document">
         <div class="article_container"></div>       
-        <img src="assets/icons/close_lightbox.svg" class="close_lightbox" aria-label="Fermer la lightBox" tabindex="0"/>
-        <img src="assets/icons/arrow-left.svg" class="previous_image" aria-label="Media précédent" tabindex="0"/>
-        <img src="assets/icons/arrow-right.svg" class="next_image" aria-label="Media suivant" tabindex="0"/>      
+        <img src="assets/icons/close_lightbox.svg" class="close_lightbox" alt="Fermer la lightBox"  tabindex="0"/>
+        <img src="assets/icons/arrow-left.svg" class="previous_image" alt="Media précédent" tabindex="0"/>
+        <img src="assets/icons/arrow-right.svg" class="next_image" alt="Media suivant" tabindex="0"/>      
       </div>
 		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/pages/photographer.js" type="module"></script>
+    <script src="/scripts/utils/contactForm.js" type="module"></script>
   </body>
 </html>
