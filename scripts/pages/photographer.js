@@ -3,7 +3,6 @@ async function getPhotographers() {
   await fetch("./data/photographers.json")
     .then((res) => res.json())
     .then((datas) => (photographers = datas.photographers));
-  console.log(photographers);
   return {
     photographers,
   };
@@ -68,7 +67,6 @@ async function getMedia() {
     .then((res) => res.json())
     .then((datas) => {
       medias = datas.media.filter((media) => media.photographerId == id);
-      console.log(medias);
     });
   return {
     medias,
@@ -435,11 +433,11 @@ async function displayLightBoxMedia(medias) {
     let position = 0;
 
     previousImage.addEventListener("click", () => {
-      position--;
+      if (position > -lightBoxCardsDOM.length + 1) position--;
       articleContainer.style.transform = `translateX(${position * 800}px)`;
     });
     previousImage.addEventListener("keydown", (e) => {
-      position--;
+      if (position > -lightBoxCardsDOM.length + 1) position--;
       if (e.keyCode === 13 || e.keyCode === 32) {
         articleContainer.style.transform = `translateX(${position * 800}px)`;
       }
@@ -450,7 +448,7 @@ async function displayLightBoxMedia(medias) {
       if (position == lightBoxCardsDOM.length) {
         position = 0;
       }
-      articleContainer.style.transform = `translateX(${-position * 800}px)`;
+      articleContainer.style.transform = `translateX(${position * 800}px)`;
     });
     nextImage.addEventListener("keydown", (e) => {
       if (position < 0) position++;
