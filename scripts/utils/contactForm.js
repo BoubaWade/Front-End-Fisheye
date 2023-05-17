@@ -119,7 +119,7 @@ inputLast.addEventListener("input", (e) => {
 
 // Fonction verifiant si l'email est valide
 function emailChecker(value) {
-  if (value == "" || !/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)) {
+  if (value == "" || !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)) {
     inputEmail.style.outlineColor = "red";
     errorEmailInput.textContent = "E-mail non valide!";
     emailOutput = null;
